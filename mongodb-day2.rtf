@@ -1,0 +1,575 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 ArialMT;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red248\green250\blue249;\red15\green29\blue38;
+\red252\green87\blue53;\red42\green182\blue255;\red50\green219\blue104;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c97647\c98431\c98039;\cssrgb\c6667\c15294\c20000;
+\cssrgb\c100000\c43529\c26667;\cssrgb\c17647\c76863\c100000;\cssrgb\c20784\c87059\c48235;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28300\viewh14840\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+Question1\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 Find all the topics and tasks which are thought in the month of October\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf3 \cb4 db.topics.insertMany([\
+\
+  \{'topic_name': "fsd",'month':'oct','schedule':'weekend','task_id':ObjectId('65e60d514f7eb7422d2e3f0d')\},\
+ \{'topic_name': "ds",'month':'oct','schedule':'weekend','task_id':ObjectId('65e60d514f7eb7422d2e3f0e')\},\
+ \{'topic_name': "uxui",'month':'oct','schedule':'weekday','task_id':ObjectId('65e60d514f7eb7422d2e3f0f')\},\
+ \{'topic_name': "fsd",'month':'oct','schedule':'weekend','task_id':ObjectId('65e60d514f7eb7422d2e3f10')\},\
+ \{'topic_name': "fsd",'month':'nov','schedule':'weekend','task_id':ObjectId('65e60d514f7eb7422d2e3f11')\},\
+\
+]);\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+[\
+  \{\
+    $lookup:\
+    \
+      \{\
+        from: "taskss",\
+        localField: "task_id",\
+        foreignField: "_id",\
+        as: "tasks",\
+      \},\
+  \},\
+  \{\
+    $unwind:\
+   \
+      \{\
+        path: "$tasks",\
+        includeArrayIndex: "string",\
+        preserveNullAndEmptyArrays: false,\
+      \},\
+  \},\
+  \{\
+    $match:\
+  \
+      \{\
+        month: "oct",\
+      \},\
+  \},\
+]\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+Question:2\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+\f0\fs24 \
+\
+\
+db.companydrives.insertMany([\{'drive_name': 'data science','drive_date':'15-oct-2020','company_name':'infosys'\},\
+\{'drive_name': 'front_end','drive_date':'25-oct-2020','company_name':'oracle'\},\
+\{'drive_name': 'UXUI Designer','drive_date':'15-dec-2020','company_name':'tcs'\},\
+\{'drive_name': 'backend development','drive_date':'29-oct-2020','company_name':'guvi'\},\
+\{'drive_name': 'data science','drive_date':'29-oct-2020','company_name':'guvi'\},\
+\{'drive_name': 'backend development','drive_date':'29-oct-2020','company_name':'guvi'\}\
+]);\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf3 \
+\{\
+  \cf5 acknowledged\cf3 : \cf6 true\cf3 ,\
+  \cf5 insertedIds\cf3 : \{\
+    
+\f3\b \cf7 '0'
+\f2\b0 \cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e92'
+\f2\b0 \cf3 ),\
+    
+\f3\b \cf7 '1'
+\f2\b0 \cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e93'
+\f2\b0 \cf3 ),\
+    
+\f3\b \cf7 '2'
+\f2\b0 \cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e94'
+\f2\b0 \cf3 ),\
+    
+\f3\b \cf7 '3'
+\f2\b0 \cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e95'
+\f2\b0 \cf3 ),\
+    
+\f3\b \cf7 '4'
+\f2\b0 \cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e96'
+\f2\b0 \cf3 ),\
+    
+\f3\b \cf7 '5'
+\f2\b0 \cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e97'
+\f2\b0 \cf3 )\
+  \}\
+\}\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+db.companydrives.find(\{'drive_date':\{$gte:'15-oct-2020',$lte:'31-oct-2020'\}\});\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf3 \
+\{\
+  \cf5 _id\cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e599ca4f7eb7422d2e3e8e'
+\f2\b0 \cf3 ),\
+  \cf5 drive_name\cf3 : 
+\f3\b \cf7 'data-science'
+\f2\b0 \cf3 ,\
+  \cf5 drive_date\cf3 : 
+\f3\b \cf7 '15-oct-2020'
+\f2\b0 \cf3 ,\
+  \cf5 company_name\cf3 : 
+\f3\b \cf7 'infosys'
+\f2\b0 \cf3 \
+\}\
+\
+\
+\
+\{\
+  \cf5 _id\cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e599ca4f7eb7422d2e3e8f'
+\f2\b0 \cf3 ),\
+  \cf5 drive_name\cf3 : 
+\f3\b \cf7 'front_end'
+\f2\b0 \cf3 ,\
+  \cf5 drive_date\cf3 : 
+\f3\b \cf7 '25-oct-2020'
+\f2\b0 \cf3 ,\
+  \cf5 company_name\cf3 : 
+\f3\b \cf7 'oracle'
+\f2\b0 \cf3 \
+\}\
+\
+\
+\
+\{\
+  \cf5 _id\cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e599ca4f7eb7422d2e3e91'
+\f2\b0 \cf3 ),\
+  \cf5 drive_name\cf3 : 
+\f3\b \cf7 'backend development'
+\f2\b0 \cf3 ,\
+  \cf5 drive_date\cf3 : 
+\f3\b \cf7 '29-oct-2020'
+\f2\b0 \cf3 ,\
+  \cf5 company_name\cf3 : 
+\f3\b \cf7 'guvi'
+\f2\b0 \cf3 \
+\}\
+\
+\
+\
+\{\
+  \cf5 _id\cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e92'
+\f2\b0 \cf3 ),\
+  \cf5 drive_name\cf3 : 
+\f3\b \cf7 'data science'
+\f2\b0 \cf3 ,\
+  \cf5 drive_date\cf3 : 
+\f3\b \cf7 '15-oct-2020'
+\f2\b0 \cf3 ,\
+  \cf5 company_name\cf3 : 
+\f3\b \cf7 'infosys'
+\f2\b0 \cf3 \
+\}\
+\
+\
+\
+\{\
+  \cf5 _id\cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e93'
+\f2\b0 \cf3 ),\
+  \cf5 drive_name\cf3 : 
+\f3\b \cf7 'front_end'
+\f2\b0 \cf3 ,\
+  \cf5 drive_date\cf3 : 
+\f3\b \cf7 '25-oct-2020'
+\f2\b0 \cf3 ,\
+  \cf5 company_name\cf3 : 
+\f3\b \cf7 'oracle'
+\f2\b0 \cf3 \
+\}\
+\
+\
+\
+\{\
+  \cf5 _id\cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e95'
+\f2\b0 \cf3 ),\
+  \cf5 drive_name\cf3 : 
+\f3\b \cf7 'backend development'
+\f2\b0 \cf3 ,\
+  \cf5 drive_date\cf3 : 
+\f3\b \cf7 '29-oct-2020'
+\f2\b0 \cf3 ,\
+  \cf5 company_name\cf3 : 
+\f3\b \cf7 'guvi'
+\f2\b0 \cf3 \
+\}\
+\
+\
+\
+\{\
+  \cf5 _id\cf3 : \cf6 ObjectId\cf3 (
+\f3\b \cf7 '65e59a244f7eb7422d2e3e96'
+\f2\b0 \cf3 ),\
+  \cf5 drive_name\cf3 : 
+\f3\b \cf7 'data science'
+\f2\b0 \cf3 ,\
+  \cf5 drive_date\cf3 : 
+\f3\b \cf7 '29-oct-2020'
+\f2\b0 \cf3 ,\
+  \cf5 company_name\cf3 : 
+\f3\b \cf7 'guvi'\
+\'85\'85\'85\'85\'85..
+\f2\b0 \cf3 \
+\}\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \
+
+\f1\fs32 \cf0 \cb1 Question 3
+\f2\fs26 \cf3 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 \cb1 Find all the company drives and students who are appeared for the placement.
+\f0\fs26 \cf3 \cb4 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 \cb1 db.companydriveslist.aggregate([\
+    \
+    \{\
+        $lookup: \{\
+            from: 'users',\
+            localField: 'user_id',\
+            foreignField: '_id',\
+            as: 'userinfo'\
+        \}\
+    \},\
+    \
+    \{\
+        $project: \{\
+            _id: 0, \
+            drive_name: 1,\
+            users: '$userinfo'\
+        \}\
+    \}\
+]);\
+\
+\
+\
+\{\
+  drive_name: 'data science',\
+  users: [\
+    \{\
+      _id: ObjectId('65e4f2ca4f7eb7422d2e3e7f'),\
+      name: 'john',\
+      email: 'john@gmail.com',\
+      gender: 'male'\
+    \}\
+  ]\
+\}\
+\{\
+  drive_name: 'front_end',\
+  users: [\
+    \{\
+      _id: ObjectId('65e4f2ca4f7eb7422d2e3e80'),\
+      name: 'sona',\
+      email: 'sona@gmail.com',\
+      gender: 'female'\
+    \}\
+  ]\
+\}\'85\'85\'85\'85\'85.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 Question4\
+Find the number of problems solved by the user in codekata\
+\
+\
+db.codekata.find();\
+\{\
+  _id: ObjectId('65e5aa574f7eb7422d2e3ea2'),\
+  topic_name: 'hmtl/css',\
+  totoal_problems_solved: 560,\
+  user_id: ObjectId('65e4f2ca4f7eb7422d2e3e7f')\
+\}\
+\{\
+  _id: ObjectId('65e5aa574f7eb7422d2e3ea3'),\
+  topic_name: 'hmtl/css',\
+  totoal_problems_solved: 1000,\
+  user_id: ObjectId('65e4f2ca4f7eb7422d2e3e80')\
+\}\
+\
+\{\
+  _id: ObjectId('65e5aa574f7eb7422d2e3ea4'),\
+  topic_name: 'js',\
+  totoal_problems_solved: 780,\
+  user_id: ObjectId('65e4f2ca4f7eb7422d2e3e81')\
+\}\
+\{\
+  _id: ObjectId('65e5aa574f7eb7422d2e3ea5'),\
+  topic_name: 'react',\
+  totoal_problems_solved: 900,\
+  user_id: ObjectId('65e4f2ca4f7eb7422d2e3e82')\
+\}\
+\{\
+  _id: ObjectId('65e5aa574f7eb7422d2e3ea6'),\
+  topic_name: 'nodejs',\
+  totoal_problems_solved: 200,\
+  user_id: ObjectId('65e4f2ca4f7eb7422d2e3e83')\
+\}\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 db.codekata.aggregate([\
+  \{\
+    $lookup: \{\
+      from: 'users',\
+      localField: 'user_id',\
+      foreignField: \'91user_id',\
+      as: 'user_info'\
+    \}\
+  \},\
+\
+  \{\
+    $group: \{\
+_id:\{\
+userid:"$userid",\
+username:"$userinfo.name"\
+\},\
+   \
+      total_problems_solved: \{ $sum: "$totoal_problems_solved" \} \
+    \}\
+  \},\
+  \{\
+    $project: \{\
+      _id: 0,\
+      userid: "$_id.user_id",\
+username: "$_id.name" ,\
+      // name: 1,\
+      total_problems_solved: 1\
+    \}\
+  \}\
+]);\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf3 \cb4 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+Output//\
+\{\
+  total_problems_solved: 3440\
+\}\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 5. Find all the mentors with who has the mentee's count more than 15\
+\
+Mentees table:\
+  \{'mentee_name':'guna','email':'guna@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'max','email':'max@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'gayathri','email':'gayathri@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef8')\},\
+\{'mentee_name':'yamuna','email':'yamuna@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'mark','email':'mark@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'simona','email':'simona@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'stephni','email':'stephni@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'gunalan','email':'gunalan@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef8')\},\
+\{'mentee_name':'sunil','email':'sunil@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'kavitha','email':'kavitha@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'kannan','email':'kannan@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'raj','email':'raj@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'madhi','email':'madhi@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef8')\},\
+\{'mentee_name':'aruna','email':'aruna@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'suma','email':'suma@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'sona','email':'sona@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'karunai','email':'karunai@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'saravanan','email':'saravanan@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\},\
+\{'mentee_name':'nila','email':'nilaa@gmail.com','course_name':'fad','mentor_id':ObjectId('65e5f8674f7eb7422d2e3ef5')\}\
+\
+]);\
+\
+\
+Mentor table:\
+\
+db.mentorss.insertMany([ \
+\
+  \{'mentor_name':'suresh', 'batch_name':'fsdenglish'\},\
+\{'mentor_name':'kavitha', 'batch_name':'dstamil'\},\
+\{'mentor_name':'arun', 'batch_name':'dstamil'\},\
+\{'mentor_name':'gopi', 'batch_name':'fsdtamil'\},\
+\{'mentor_name':'kannan', 'batch_name':'fsdtamil'\},\
+\
+])\
+\
+Query:\
+\
+db.mentees.aggregate([\
+  \{\
+    $lookup: \{\
+      from: "mentorss", \
+      localField: "mentor_id",\
+      foreignField: \'93_mentor_id\'94,\
+      as: "mentor_info"\
+    \}\
+  \},\
+  \{\
+    $match: \{\
+      mentor_id: \{ $exists: true \}\
+    \}\
+  \},\
+  \
+  \{\
+    $group: \{\
+      _id: "$mentor_id",\
+      mentor_name: \{ $first: "$mentor_info.mentor_name" \},\
+      mentees_count: \{ $sum: 1 \}\
+    \}\
+  \},\
+  \{\
+    $match: \{\
+      mentees_count: \{ $gt: 15 \}\
+    \}\
+  \},\
+  \{\
+    $project: \{\
+      _id: 0,\
+      mentor_id: "$_id",\
+      mentor_name: 1,\
+      mentees_count: 1\
+    \}\
+  \}\
+]);\
+\
+\
+Output:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf3 \cb4 \
+\{\
+  mentor_name: 'suresh',\
+  mentees_count: 16,\
+  mentor_id: ObjectId('65e5f8674f7eb7422d2e3ef5')\
+\}\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf3 \cb4 \
+
+\f1\fs32 \cf0 \cb1 6.Find the number of users who are absent and task is not submitted\'a0 between 15 oct-2020 and 31-oct-2020\
+\
+db.attendance.aggregate([\
+  \{\
+    $match: \{\
+      date: \{\
+        $gte: '15-oct-2020',\
+        $lte: '31-oct-2020'\
+      \},\
+      status: 'absent'\
+    \}\
+  \},\
+  \{\
+    $lookup: \{\
+      from: 'taskss',\
+      localField: 'user_id',\
+      foreignField: 'user_id',\
+      as: 'task_info'\
+    \}\
+  \},\
+  \{\
+    $match: \{\
+      'task_info.submission_status': \{ $ne: 'submitted' \}\
+    \}\
+  \},\
+  \{\
+    $group: \{\
+      _id: '$user_id'\
+    \}\
+  \},\
+  \{\
+    $count: 'total_users'\
+  \}\
+]);\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf3 \cb4 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf0 \cb1 \
+Output:\
+\
+\{\
+  total_users: 1\
+\}\
+
+\f2\fs26 \cf3 \cb4 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb1 \
+}
